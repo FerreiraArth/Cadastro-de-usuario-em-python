@@ -5,7 +5,8 @@ Projeto simples de cadastro de usuários feito em Python.
 ## Funções
 
 - Cadastrar usuário
-- 
+- Listar usuário
+- Excluir usuário
 
 ## Tecnologias
 
