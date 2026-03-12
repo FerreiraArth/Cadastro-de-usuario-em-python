@@ -4,7 +4,7 @@ def cadastrar_usuarios():
     print("\n=== Lista de Usúario")
 
     nome = input("Digite o nome: ")
-    idade = input("Digite idade: ")
+    idade = int(input("Digite idade: "))
     email = input("Digite o email: ")
 
     usuario = {
@@ -30,6 +30,24 @@ def listar_usuarios():
         print(f"Idade: {usuario['idade']}")
         print(f"Email: {usuario['email']}")
 
+def excluir_usuario():
+    listar_usuarios()
+
+    if len(usuarios) == 0:
+        return
+    
+    try:
+        indice = int(input("\nDigite o número de usuários para excluir: "))
+
+        if 1 <= indice <= len(usuarios):
+            usuarios.pop(indice - 1)
+            print("Usuário removido com sucesso!")
+        
+        else:
+            print("Usuário inválido")
+    except ValueError:
+        print("Digite um número válido.")
+
 def menu():
     while True:
         print("\n===== SISTEMA DE CADASTRO =====")
@@ -49,10 +67,12 @@ def menu():
         elif opcao == "4":
             print("Fechando área de cadastro...")
             break
-        
+
+        elif opcao == "3":
+            excluir_usuario()
+
         else:
             print("Opção inválida!")
-
 
             
 menu()
