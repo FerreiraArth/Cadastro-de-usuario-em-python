@@ -7,6 +7,7 @@ Projeto simples de cadastro de usuários feito em Python.
 - Cadastrar usuário
 - Listar usuário
 - Excluir usuário
+- Implementar o JSON
 
 ## Tecnologias
 
