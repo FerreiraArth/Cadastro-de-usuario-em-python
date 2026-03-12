@@ -6,11 +6,15 @@ def carregar_usuarios():
             return json.load(arquivo)
     except FileNotFoundError:
         return[]
+    
+def salvar_usuarios(usuarios):
+    with open("usuarios.json", "w") as arquivo: 
+        json.dump(usuarios, arquivo, indent=4) # Converte a lista Python em JSON
 
-usuarios = []
+usuarios = carregar_usuarios()
 
 def cadastrar_usuarios():
-    print("\n=== Lista de Usúario")
+    print("\n=== Lista de Usúario ===")
 
     nome = input("Digite o nome: ")
     idade = input("Digite idade: ")
@@ -24,12 +28,14 @@ def cadastrar_usuarios():
 
     usuarios.append(usuario)
 
+    salvar_usuarios(usuarios)
+
     print("Usuário cadastrado com sucesso!")
 
 def listar_usuarios():
     print("===== Lista de Usuarios =====")
 
-    if len(usuarios) == 0:
+    if not usuarios:
         print("Sem usuário cadastrado!")
         return
     
@@ -42,20 +48,14 @@ def listar_usuarios():
 def excluir_usuario():
     listar_usuarios()
 
-    if len(usuarios) == 0:
-        return
+    indice = int(input("\nDigite o número de usuários para excluir: "))
     
-    try:
-        indice = int(input("\nDigite o número de usuários para excluir: "))
-
-        if 1 <= indice <= len(usuarios):
-            usuarios.pop(indice - 1)
-            print("Usuário removido com sucesso!")
-        
-        else:
-            print("Usuário inválido")
-    except ValueError:
-        print("Digite um número válido.")
+    if 1 <= indice <= len(usuarios):
+        usuarios.pop(indice - 1)
+        salvar_usuarios(usuarios)
+        print("Usuário removido com sucesso!")
+    else:
+        print("Usuário inválido")
 
 def menu():
     while True:
