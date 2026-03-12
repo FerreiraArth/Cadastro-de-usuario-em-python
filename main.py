@@ -1,10 +1,19 @@
+import json
+
+def carregar_usuarios():
+    try:
+        with open("usuarios.json", "r") as arquivo:
+            return json.load(arquivo)
+    except FileNotFoundError:
+        return[]
+
 usuarios = []
 
 def cadastrar_usuarios():
     print("\n=== Lista de Usúario")
 
     nome = input("Digite o nome: ")
-    idade = int(input("Digite idade: "))
+    idade = input("Digite idade: ")
     email = input("Digite o email: ")
 
     usuario = {
