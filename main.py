@@ -17,6 +17,19 @@ def cadastrar_usuarios():
 
     print("Usuário cadastrado com sucesso!")
 
+def listar_usuarios():
+    print("===== Lista de Usuarios =====")
+
+    if len(usuarios) == 0:
+        print("Sem usuário cadastrado!")
+        return
+    
+    for i, usuario in enumerate(usuarios, start=1):
+        print(f"\nUsuário {i}")
+        print(f"Nome: {usuario['nome']}")
+        print(f"Idade: {usuario['idade']}")
+        print(f"Email: {usuario['email']}")
+
 def menu():
     while True:
         print("\n===== SISTEMA DE CADASTRO =====")
@@ -29,10 +42,14 @@ def menu():
 
         if opcao == "1":
             cadastrar_usuarios()
-        
+
+        elif opcao == "2":
+            listar_usuarios()
+            
         elif opcao == "4":
             print("Fechando área de cadastro...")
             break
+        
         else:
             print("Opção inválida!")
 
