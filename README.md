@@ -19,4 +19,4 @@ Python
 
 2. Execute:
 
-python cadastro.py
+python main.py
