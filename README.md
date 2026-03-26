@@ -1,19 +1,22 @@
-# Sistema de Cadastro em Python
+# 🗒️ Sistema de Cadastro em Python
 
 Projeto simples de cadastro de usuários feito em Python.
 
-## Funções
+---
+
+## 🚀 Funcionalidades
 
 - Cadastrar usuário
 - Listar usuário
 - Excluir usuário
 - Implementar o JSON
 
-## Tecnologias
+## 🛠️ Tecnologias utilizadas
 
-Python
+* Python
+* json
 
-## Como executar
+## 🖳 Como executar
 
 1. Abra o terminal na pasta do projeto
 
